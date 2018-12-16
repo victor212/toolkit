@@ -58,6 +58,73 @@ let g:mucomplete#enable_auto_at_startup = 0
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
+" ============================================================
+Plugin 'cscope.vim'
+
+if has("cscope")
+	set csprg=/usr/local/bin/cscope
+	" csto = 0, cscope database will be search first, 1 ctags first
+	set csto=0 	" cscope tag order
+
+	" cst set this option so that search cscope and tags database at the
+	" same time
+	set cst
+	" set nocst
+	" cscopeverbose
+	set nocsverb
+
+	" add any database in current directory
+	if filereadable("cscope.out")
+		cs add cscope.out
+	" else add database pointed to by environment
+	elseif $CSCOPE_DB != ""
+		cs add $CSCOPE_DB
+	endif
+
+	set csverb
+	set cscopequickfix=s-,c-,d-,i-,t-,e-
+
+endif
+
+" leader key default is '\'
+"
+" \fa : 
+nnoremap <leader>fa :call cscope#findInteractive(expand('<cword>'))<CR>
+" \l : show or close location quickfix window
+nnoremap <leader>l :call ToggleLocationList()<CR>
+
+" s: Find this C symbol
+" \fs
+nnoremap  <leader>fs :call cscope#find('s', expand('<cword>'))<CR>
+
+" g: Find this definition
+" \fg
+nnoremap  <leader>fg :call cscope#find('g', expand('<cword>'))<CR>
+
+" d: Find functions called by this function
+" \fd
+nnoremap  <leader>fd :call cscope#find('d', expand('<cword>'))<CR>
+
+" c: Find functions calling this function
+" \fc
+nnoremap  <leader>fc :call cscope#find('c', expand('<cword>'))<CR>
+
+" t: Find this text string
+" \ft
+nnoremap  <leader>ft :call cscope#find('t', expand('<cword>'))<CR>
+
+" e: Find this egrep pattern
+" \fe
+nnoremap  <leader>fe :call cscope#find('e', expand('<cword>'))<CR>
+
+" f: Find this file, then open it
+" \ff
+nnoremap  <leader>ff :call cscope#find('f', expand('<cword>'))<CR>
+
+" i: Find files #including this file
+" \fi
+nnoremap  <leader>fi :call cscope#find('i', expand('<cword>'))<CR>
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -79,6 +146,7 @@ set tags=tags 		" Ctags filename
 "set tags+=xxxxx 	" Can add multi tags file
 "set autochdir
 
+
 set number
 set cursorline
 " set cursorcolumn
@@ -92,6 +160,8 @@ set ruler
 set tabstop=8		" Tab character width
 "set softtabstop=8	" Set soft tab character width
 "set shiftwidth=8	" Set audo indent width
+"set expandtab 		" Expand to space
+"set noexpandtab 	" No expand to space
 set cc=81		" Should not exceed 80 characters
 set ff=unix
 set hlsearch		" Highlight search 
