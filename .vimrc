@@ -50,8 +50,9 @@ let Tlist_Use_Right_Window=1
 
 " ============================================================
 Plugin 'vim-mucomplete'
-set completeopt+=noselect
+" set completeopt+=noselect
 let g:mucomplete#enable_auto_at_startup = 0
+" let g:mucomplete#no_mappings = 1
 
 " ============================================================
 Plugin 'vim-airline/vim-airline'
@@ -74,7 +75,9 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 " ============================================================
-set autochdir
+set tags=tags 		" Ctags filename
+"set tags+=xxxxx 	" Can add multi tags file
+"set autochdir
 
 set number
 set cursorline
