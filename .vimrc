@@ -55,8 +55,11 @@ let g:mucomplete#enable_auto_at_startup = 0
 " let g:mucomplete#no_mappings = 1
 
 " ============================================================
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plugin 'vim-airline'
+Plugin 'vim-airline-themes'
+
+" let g:airline_theme="molokai"
+" set t_Co=256 	" If term only support 256 color, need to set it
 
 " ============================================================
 " Plugin 'cscope.vim'
