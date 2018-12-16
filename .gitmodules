@@ -28,3 +28,6 @@
 [submodule ".vim/bundle/cscope.vim"]
 	path = .vim/bundle/cscope.vim
 	url = https://github.com/vim-scripts/cscope.vim.git
+[submodule ".vim/bundle/vim-airline-themes"]
+	path = .vim/bundle/vim-airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes
