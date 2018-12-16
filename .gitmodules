@@ -22,3 +22,6 @@
 [submodule ".vim/bundle/vim-airline"]
 	path = .vim/bundle/vim-airline
 	url = https://github.com/vim-scripts/vim-airline.git
+[submodule ".vim/bundle/vim-mucomplete"]
+	path = .vim/bundle/vim-mucomplete
+	url = https://github.com/lifepillar/vim-mucomplete.git

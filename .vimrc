@@ -35,6 +35,7 @@ let NERDTreeWinSize=40
 " ============================================================
 Plugin 'Mark'
 
+
 " ============================================================
 Plugin 'TagHighlight'
 
@@ -47,6 +48,10 @@ let Tlist_WinWidth=40
 let Tlist_Exit_OnlyWindow=1
 let Tlist_Use_Right_Window=1
 
+" ============================================================
+Plugin 'vim-mucomplete'
+set completeopt+=noselect
+let g:mucomplete#enable_auto_at_startup = 0
 
 " ============================================================
 Plugin 'vim-airline/vim-airline'
