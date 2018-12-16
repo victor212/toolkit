@@ -59,7 +59,8 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
 " ============================================================
-Plugin 'cscope.vim'
+" Plugin 'cscope.vim'
+" Some linux server cannot work, just skip it now
 
 if has("cscope")
 	set csprg=/usr/local/bin/cscope
@@ -88,42 +89,41 @@ endif
 
 " leader key default is '\'
 "
-" \fa : 
-nnoremap <leader>fa :call cscope#findInteractive(expand('<cword>'))<CR>
-" \l : show or close location quickfix window
-nnoremap <leader>l :call ToggleLocationList()<CR>
+" :cw to show quickfix list
+" :cn
+" :cp
 
 " s: Find this C symbol
 " \fs
-nnoremap  <leader>fs :call cscope#find('s', expand('<cword>'))<CR>
+nnoremap  <leader>fs :cs find s <C-R>=expand("<cword>")<CR><CR>
 
 " g: Find this definition
 " \fg
-nnoremap  <leader>fg :call cscope#find('g', expand('<cword>'))<CR>
+nnoremap  <leader>fg :cs find g <C-R>=expand("<cword>")<CR><CR>
 
 " d: Find functions called by this function
 " \fd
-nnoremap  <leader>fd :call cscope#find('d', expand('<cword>'))<CR>
+nnoremap  <leader>fd :cs find d <C-R>=expand("<cword>")<CR><CR>
 
 " c: Find functions calling this function
 " \fc
-nnoremap  <leader>fc :call cscope#find('c', expand('<cword>'))<CR>
+nnoremap  <leader>fc :cs find c <C-R>=expand("<cword>")<CR><CR>
 
 " t: Find this text string
 " \ft
-nnoremap  <leader>ft :call cscope#find('t', expand('<cword>'))<CR>
+nnoremap  <leader>ft :cs find t <C-R>=expand("<cword>")<CR><CR>
 
 " e: Find this egrep pattern
 " \fe
-nnoremap  <leader>fe :call cscope#find('e', expand('<cword>'))<CR>
+nnoremap  <leader>fe :cs find e <C-R>=expand("<cword>")<CR><CR>
 
 " f: Find this file, then open it
 " \ff
-nnoremap  <leader>ff :call cscope#find('f', expand('<cword>'))<CR>
+nnoremap  <leader>ff :cs find f <C-R>=expand("<cword>")<CR><CR>
 
 " i: Find files #including this file
 " \fi
-nnoremap  <leader>fi :call cscope#find('i', expand('<cword>'))<CR>
+nnoremap  <leader>fi :cs find i <C-R>=expand("<cword>")<CR><CR>
 
 
 " All of your Plugins must be added before the following line
