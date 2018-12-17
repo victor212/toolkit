@@ -16,7 +16,10 @@ Plugin 'VundleVim/Vundle.vim'
 " ============================================================
 Plugin 'Tagbar'
 map <F8> :TagbarToggle<CR>
-
+" Can refer to help doc, if cannot show arrows correctly,
+" this can be enabled
+" let g:tagbar_iconchars = ['+', '-'] 	
+" ============================================================
 " ============================================================
 Plugin 'ctrlp.vim'
 let g:ctrlp_custom_ignore = {
@@ -31,6 +34,8 @@ Plugin 'The-NERD-tree'
 " Set toggle key map
 map <C-n> :silent! NERDTreeToggle<CR>
 let NERDTreeWinSize=40
+" Enable this if Arrows cannot be show correctly
+" let NERDTreeDirArrows=0
 
 " ============================================================
 Plugin 'Mark'
