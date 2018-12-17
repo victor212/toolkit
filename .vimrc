@@ -59,7 +59,7 @@ Plugin 'vim-airline'
 Plugin 'vim-airline-themes'
 
 " let g:airline_theme="molokai"
-" set t_Co=256 	" If term only support 256 color, need to set it
+set t_Co=256 	" If term only support 256 color, need to set it
 
 " ============================================================
 " Plugin 'cscope.vim'
