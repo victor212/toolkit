@@ -170,7 +170,7 @@ set tabstop=8		" Tab character width
 "set shiftwidth=8	" Set audo indent width
 "set expandtab 		" Expand to space
 "set noexpandtab 	" No expand to space
-set cc=81		" Should not exceed 80 characters
+"set cc=81		" Should not exceed 80 characters
 set ff=unix
 set hlsearch		" Highlight search 
 set incsearch		" Incremental search
