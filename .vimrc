@@ -18,7 +18,8 @@ Plugin 'Tagbar'
 map <F8> :TagbarToggle<CR>
 " Can refer to help doc, if cannot show arrows correctly,
 " this can be enabled
-" let g:tagbar_iconchars = ['+', '-'] 	
+let g:tagbar_iconchars = ['+', '-']
+
 " ============================================================
 " ============================================================
 Plugin 'ctrlp.vim'
@@ -28,6 +29,7 @@ let g:ctrlp_custom_ignore = {
     \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
     \ }  
 
+let g:ctrlp_working_path_mode="" 	" Always search from top
 
 " ============================================================
 Plugin 'The-NERD-tree'
@@ -35,7 +37,7 @@ Plugin 'The-NERD-tree'
 map <C-n> :silent! NERDTreeToggle<CR>
 let NERDTreeWinSize=40
 " Enable this if Arrows cannot be show correctly
-" let NERDTreeDirArrows=0
+let NERDTreeDirArrows=0
 
 " ============================================================
 Plugin 'Mark'
@@ -71,7 +73,13 @@ set t_Co=256 	" If term only support 256 color, need to set it
 " Some linux server cannot work, just skip it now
 
 if has("cscope")
-	set csprg=/usr/local/bin/cscope
+	if filereadable("/usr/local/bin/cscope")
+		set csprg=/usr/local/bin/cscope
+	endif
+	if filereadable("/usr//bin/cscope")
+		set csprg=/usr//bin/cscope
+	endif
+
 	" csto = 0, cscope database will be search first, 1 ctags first
 	set csto=0 	" cscope tag order
 

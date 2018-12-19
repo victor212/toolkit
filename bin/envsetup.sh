@@ -31,10 +31,12 @@ function clearcs()
 function mkcscopefiles()
 {
 	ALL_SRCS=${CS_SOURCE_FILE_DIR//;/ }
+	rm -rf cscope.files
+
 	for onepath in ${ALL_SRCS}
 	do
 		echo ${onepath}
-		find ${onepath} -name "*.[ch]" -o -name "*.cpp" > cscope.files
+		find ${onepath} -name "*.[ch]" -o -name "*.cpp" >> cscope.files
 	done
 
 }
@@ -47,6 +49,8 @@ function mktags()
 	do
 		ctags -a -R ${onepath}
 	done
+
+	mkcscopefiles
 	rm -rf cscope.in.out cscope.out cscope.po.out
 	cscope -Rbqk -i cscope.files
 }
