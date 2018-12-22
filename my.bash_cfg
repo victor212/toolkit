@@ -50,7 +50,7 @@ function sos()
 		h) 	#echo "optarg = " $OPTARG
 			#echo "optind = " $OPTIND
 			___help
-			;;
+			return;;
 		?) 	echo "Invalid parameters"
 			___help
 		   	return;;
