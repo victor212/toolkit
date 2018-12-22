@@ -13,7 +13,10 @@ if [ -f "${home}/.vimrc" ]; then
 	mv ${home}/.vimrc ${home}/.vimrc_${bak_time}
 fi
 
-ln -s ${cur}/.vim ${home}/.vim
-ln -s ${cur}/.vimrc ${home}/.vimrc
+
+# Use soft link is better, because this will be changed in frequency.
+ln -s ${cur}/my.vim ${home}/.vim
+ln -s ${cur}/my.vimrc ${home}/.vimrc
+ln -s ${cur}/my.bash_cfg ${home}/.bash_cfg
 
 

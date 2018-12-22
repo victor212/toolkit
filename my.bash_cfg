@@ -1,18 +1,29 @@
 #!/bin/bash
+################################################################################
+# Common setting area
+################################################################################
+if [ "$TERM" == "xterm" ]; then
+        export TERM=xterm-256color
+fi
 
-function help()
+################################################################################
+# My command area
+################################################################################
+
+function ___help()
 {
 	echo "sos: options"
-	echo " 	-h help"
-	echo " 	tips"
+	echo " 	-h : get help"
+	echo " 	tips : get common tips"
+	echo " 	mac : get mac tips"
+	echo "Supported seft-defined commands:"
 	echo " 	markcs"
 	echo " 	clearcs"
-	echo " 	mkcscopefiles"
 	echo " 	mktags"
 
 }
 
-function common_tips()
+function ___common_tips()
 {
 	echo "This is my common tips"
 	echo "ctags -R"
@@ -20,6 +31,12 @@ function common_tips()
 	echo "cscope -Rbkq"
 	echo "  :cs add cscope.out"
 
+}
+
+function ___mac_tips()
+{
+	echo "MAC serial tool"
+	echo " 	screen /dev/tty.usbserial-xxxxx  115200"
 }
 
 function sos()
@@ -32,11 +49,11 @@ function sos()
 		case $OPTION in
 		h) 	#echo "optarg = " $OPTARG
 			#echo "optind = " $OPTIND
-			help
+			___help
 			;;
 		?) 	echo "Invalid parameters"
-			help
-		   	exit 1;;
+			___help
+		   	return;;
 		esac
 	done
 # 	echo "optind = "$OPTIND
@@ -44,9 +61,19 @@ function sos()
 	# Keep rest parameters only 
 	shift $(($OPTIND - 1))
 
-	# The no leading opt parameters
-	echo $1
+	# No leading opt parameters
+	#echo $1
+	if [ "$1"x = ""x ]; then
+		echo "No parameters, please get help: sos -h"
+		return
+	fi
 
+	case $1 in
+	tips) 	___common_tips
+		;;
+	mac) 	___mac_tips
+		;;
+	esac
 }
 
 
@@ -67,7 +94,7 @@ function clearcs()
 	CS_SOURCE_FILE_DIR=""
 }
 
-function mkcscopefiles()
+function ___mkcscopefiles()
 {
 	ALL_SRCS=${CS_SOURCE_FILE_DIR//;/ }
 	rm -rf cscope.files
@@ -89,7 +116,7 @@ function mktags()
 		ctags -a -R ${onepath}
 	done
 
-	mkcscopefiles
+	___mkcscopefiles
 	rm -rf cscope.in.out cscope.out cscope.po.out
 	cscope -Rbqk -i cscope.files
 }

@@ -1,33 +1,33 @@
-[submodule ".vim/bundle/The-NERD-tree"]
-	path = .vim/bundle/The-NERD-tree
+[submodule "my.vim/bundle/The-NERD-tree"]
+	path = my.vim/bundle/The-NERD-tree
 	url = https://github.com/vim-scripts/The-NERD-tree.git
-[submodule ".vim/bundle/taglist.vim"]
-	path = .vim/bundle/taglist.vim
+[submodule "my.vim/bundle/taglist.vim"]
+	path = my.vim/bundle/taglist.vim
 	url = https://github.com/vim-scripts/taglist.vim.git
-[submodule ".vim/bundle/Mark"]
-	path = .vim/bundle/Mark
+[submodule "my.vim/bundle/Mark"]
+	path = my.vim/bundle/Mark
 	url = https://github.com/vim-scripts/Mark.git
-[submodule ".vim/bundle/TagHighlight"]
-	path = .vim/bundle/TagHighlight
+[submodule "my.vim/bundle/TagHighlight"]
+	path = my.vim/bundle/TagHighlight
 	url = https://github.com/vim-scripts/TagHighlight.git
-[submodule ".vim/bundle/Tagbar"]
-	path = .vim/bundle/Tagbar
+[submodule "my.vim/bundle/Tagbar"]
+	path = my.vim/bundle/Tagbar
 	url = https://github.com/vim-scripts/Tagbar.git
-[submodule ".vim/bundle/Vundle.vim"]
-	path = .vim/bundle/Vundle.vim
+[submodule "my.vim/bundle/Vundle.vim"]
+	path = my.vim/bundle/Vundle.vim
 	url = https://github.com/VundleVim/Vundle.vim.git
-[submodule ".vim/bundle/ctrlp.vim"]
-	path = .vim/bundle/ctrlp.vim
+[submodule "my.vim/bundle/ctrlp.vim"]
+	path = my.vim/bundle/ctrlp.vim
 	url = https://github.com/vim-scripts/ctrlp.vim.git
-[submodule ".vim/bundle/vim-airline"]
-	path = .vim/bundle/vim-airline
+[submodule "my.vim/bundle/vim-airline"]
+	path = my.vim/bundle/vim-airline
 	url = https://github.com/vim-scripts/vim-airline.git
-[submodule ".vim/bundle/vim-mucomplete"]
-	path = .vim/bundle/vim-mucomplete
+[submodule "my.vim/bundle/vim-mucomplete"]
+	path = my.vim/bundle/vim-mucomplete
 	url = https://github.com/lifepillar/vim-mucomplete.git
-[submodule ".vim/bundle/cscope.vim"]
-	path = .vim/bundle/cscope.vim
+[submodule "my.vim/bundle/cscope.vim"]
+	path = my.vim/bundle/cscope.vim
 	url = https://github.com/vim-scripts/cscope.vim.git
-[submodule ".vim/bundle/vim-airline-themes"]
-	path = .vim/bundle/vim-airline-themes
+[submodule "my.vim/bundle/vim-airline-themes"]
+	path = my.vim/bundle/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes
