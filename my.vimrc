@@ -21,15 +21,24 @@ map <F8> :TagbarToggle<CR>
 let g:tagbar_iconchars = ['+', '-']
 
 " ============================================================
-" ============================================================
-Plugin 'ctrlp.vim'
-let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-    \ 'file': '\v\.(exe|so|o)$',
-    \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
-    \ }  
+Plugin 'ack.vim'
+" \a to search
+nnoremap <Leader>a :Ack!<Space>
 
-let g:ctrlp_working_path_mode="" 	" Always search from top
+" ============================================================
+"Plugin 'ctrlp.vim'
+"let g:ctrlp_custom_ignore = {
+"    \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+"    \ 'file': '\v\.(exe|so|o)$',
+"    \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
+"    \ }  
+"
+"let g:ctrlp_working_path_mode="" 	" Always search from top
+
+" ============================================================
+Plugin 'LeaderF'
+" ctrl+p to lauch Leaderf
+noremap <C-p> :Leaderf<CR>
 
 " ============================================================
 Plugin 'The-NERD-tree'
