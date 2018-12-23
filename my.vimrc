@@ -24,6 +24,7 @@ let g:tagbar_iconchars = ['+', '-']
 Plugin 'ack.vim'
 " \a to search
 nnoremap <Leader>a :Ack!<Space>
+let g:ackhighlight = 1
 
 " ============================================================
 "Plugin 'ctrlp.vim'
@@ -36,9 +37,11 @@ nnoremap <Leader>a :Ack!<Space>
 "let g:ctrlp_working_path_mode="" 	" Always search from top
 
 " ============================================================
+" Use tag v1.01 because it support vim v7.3
 Plugin 'LeaderF'
 " ctrl+p to lauch Leaderf
 noremap <C-p> :Leaderf<CR>
+let g:Lf_DefaultMode=1 	" Search full path
 
 " ============================================================
 Plugin 'The-NERD-tree'
