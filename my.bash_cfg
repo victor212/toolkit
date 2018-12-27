@@ -8,7 +8,7 @@ fi
 
 # Add ~/bin to PATH
 
-export PATH=$PATH:~/bin2
+export PATH=~/bin2:$PATH
 
 ################################################################################
 # My command area
@@ -135,5 +135,10 @@ function mindexer()
 	echo "Creating ctags ..."
 	ctags -f ${DB_TAG} -L ${FLIST}
 	echo "Creating ctags files done "
+}
+
+function mcsignore()
+{
+	touch .cscopeignore
 }
 

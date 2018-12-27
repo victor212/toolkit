@@ -137,9 +137,34 @@ fi
 	find $DIR \( -type f -o -type l \)
     fi
 ) | \
+    egrep -i '\.(cscopeignore)$' | \
+    sed -e 's/\.cscopeignore//'  -e 's/^\.\///' | \
+    sort > $LIST_FILE.excluded
+
+(
+    if [ "X$RECURSE" = "X" ]
+    then
+	# Ugly, inefficient, but it works.
+	for f in *
+	do
+	    echo "$DIR/$f"
+	done
+    else
+	find $DIR \( -type f -o -type l \)
+    fi
+) | \
     egrep -i '\.([chly](xx|pp)*|cc|hh)$' | \
     sed -e '/\/CVS\//d' -e '/\/RCS\//d' -e 's/^\.\///' | \
-    sort > $LIST_FILE
+    sort > $LIST_FILE.all
+
+if [ -s $LIST_FILE.excluded ]
+then
+    echo "Excluded path: "
+    cat $LIST_FILE.excluded
+    grep -vFf $LIST_FILE.excluded $LIST_FILE.all > $LIST_FILE
+else
+    cp $LIST_FILE.all $LIST_FILE
+fi
 
 if [ "X$VERBOSE" != "X" ]
 then
