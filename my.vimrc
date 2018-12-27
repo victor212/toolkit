@@ -103,8 +103,8 @@ if has("cscope")
 	set nocsverb
 
 	" add any database in current directory
-	if filereadable("cscope.out")
-		cs add cscope.out
+	if filereadable(".cscope/cscope.out")
+		cs add .cscope/cscope.out
 	" else add database pointed to by environment
 	elseif $CSCOPE_DB != ""
 		cs add $CSCOPE_DB
@@ -170,7 +170,7 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 " ============================================================
-set tags=tags 		" Ctags filename
+set tags=.cscope/tags 		" Ctags filename
 "set tags+=xxxxx 	" Can add multi tags file
 "set autochdir
 
