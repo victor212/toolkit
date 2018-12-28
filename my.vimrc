@@ -41,6 +41,7 @@ let g:ackhighlight = 1
 Plugin 'LeaderF'
 " ctrl+p to lauch Leaderf
 noremap <C-p> :Leaderf<CR>
+noremap <C-b> :LeaderfBuffer<CR>
 let g:Lf_DefaultMode=1 	" Search full path
 
 " ============================================================
