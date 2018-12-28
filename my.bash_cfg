@@ -24,6 +24,8 @@ function ___help()
 	echo " 	markcs"
 	echo " 	clearcs"
 	echo " 	mktags"
+	echo " 	mindexer"
+	echo " 	mcsignore"
 
 }
 
