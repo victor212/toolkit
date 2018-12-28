@@ -129,10 +129,10 @@ function mktags()
 
 function mindexer()
 {
-	mkdir -p $(PWD)/.cscope/
-	DB_CS=$(PWD)/.cscope/cscope.out
-	DB_TAG=$(PWD)/.cscope/tags
-	FLIST=$(PWD)/.cscope/cscope.files
+	mkdir -p ${PWD}/.cscope/
+	DB_CS=${PWD}/.cscope/cscope.out
+	DB_TAG=${PWD}/.cscope/tags
+	FLIST=${PWD}/.cscope/cscope.files
 	cscope-indexer -v -r -f ${DB_CS} -i ${FLIST}
 	echo "Creating ctags ..."
 	ctags -f ${DB_TAG} -L ${FLIST}
