@@ -112,7 +112,7 @@ if has("cscope")
 	endif
 
 	set csverb
-	set cscopequickfix=s-,c-,d-,i-,t-,e-
+	set cscopequickfix=s-,c-,d-,i-,t-,e-,g-
 
 endif
 
@@ -154,6 +154,11 @@ nnoremap  <leader>ff :cs find f <C-R>=expand("<cword>")<CR><CR>
 " \fi
 nnoremap  <leader>fi :cs find i <C-R>=expand("<cword>")<CR><CR>
 
+" \fg
+noremap <leader>g :cstag<Space>
+
+" \fe
+noremap <leader>e :cs find e<Space>
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

@@ -127,6 +127,16 @@ function mktags()
 	cscope -Rbqk -i cscope.files
 }
 
+function mroot()
+{
+	export R=${PWD}
+}
+
+function croot()
+{
+	cd $R
+}
+
 function mindexer()
 {
 	mkdir -p ${PWD}/.cscope/
@@ -134,9 +144,9 @@ function mindexer()
 	DB_TAG=${PWD}/.cscope/tags
 	FLIST=${PWD}/.cscope/cscope.files
 	cscope-indexer -v -r -f ${DB_CS} -i ${FLIST}
-	echo "Creating ctags ..."
-	ctags -f ${DB_TAG} -L ${FLIST}
-	echo "Creating ctags files done "
+	#echo "Creating ctags ..."
+	#ctags -f ${DB_TAG} -L ${FLIST}
+	#echo "Creating ctags files done "
 }
 
 function mcsignore()
