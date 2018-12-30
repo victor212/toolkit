@@ -19,6 +19,7 @@ map <F8> :TagbarToggle<CR>
 " Can refer to help doc, if cannot show arrows correctly,
 " this can be enabled
 let g:tagbar_iconchars = ['+', '-']
+let g:tagbar_sort = 0
 
 " ============================================================
 Plugin 'ack.vim'
