@@ -58,6 +58,8 @@ Plugin 'Mark'
 " ============================================================
 " clang-format.py
 map <C-K> :pyf ~/bin2/clang-format.py<CR>
+" Can configure clang format path
+"let g:clang_format_path = "clang-format-3.8"
 
 " ============================================================
 Plugin 'TagHighlight'
