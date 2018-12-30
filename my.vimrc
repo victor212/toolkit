@@ -193,14 +193,14 @@ set laststatus=2
 set ruler
 set tabstop=8		" Tab character width
 "set softtabstop=8	" Set soft tab character width
-"set shiftwidth=8	" Set audo indent width
+"set shiftwidth=8	" Set auto indent width
 "set expandtab 		" Expand to space
 "set noexpandtab 	" No expand to space
-"set cc=81		" Should not exceed 80 characters
+set cc=81		" Should not exceed 80 characters
 set ff=unix
 set hlsearch		" Highlight search 
 set incsearch		" Incremental search
-set autoindent
+set autoindent 		" Use  :set paste   set nopaste to enter paste mode
 set cindent
 set backspace=indent,eol,start	" Backspace key work mode
 set history=1000	" Set command history
@@ -211,6 +211,7 @@ syntax enable		" Syntax highlight keyword
 syntax on
 colorscheme desert 	" Can check in /usr/share/vim/xxx/colors
 hi search term=standout ctermfg=0 ctermbg=3
+hi ColorColumn term=standout ctermfg=9 ctermbg=8
 
 set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
