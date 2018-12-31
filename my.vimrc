@@ -13,13 +13,6 @@ Plugin 'VundleVim/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 
-" ============================================================
-Plugin 'Tagbar'
-map <F8> :TagbarToggle<CR>
-" Can refer to help doc, if cannot show arrows correctly,
-" this can be enabled
-let g:tagbar_iconchars = ['+', '-']
-let g:tagbar_sort = 0
 
 " ============================================================
 Plugin 'ack.vim'
@@ -66,13 +59,21 @@ map <C-K> :pyf ~/bin2/clang-format.py<CR>
 Plugin 'TagHighlight'
 
 " ============================================================
-Plugin 'taglist.vim'
-map <F10> :silent! TlistToggle<CR>
-let Tlist_Ctags_Cmd='ctags'
-let Tlist_Show_One_File=1
-let Tlist_WinWidth=40
-let Tlist_Exit_OnlyWindow=1
-let Tlist_Use_Right_Window=1
+"Plugin 'taglist.vim'
+"map <F10> :silent! TlistToggle<CR>
+"let Tlist_Ctags_Cmd='ctags'
+"let Tlist_Show_One_File=1
+"let Tlist_WinWidth=40
+"let Tlist_Exit_OnlyWindow=1
+"let Tlist_Use_Right_Window=1
+
+" ============================================================
+Plugin 'Tagbar'
+map <F10> :TagbarToggle<CR>
+" Can refer to help doc, if cannot show arrows correctly,
+" this can be enabled
+let g:tagbar_iconchars = ['+', '-']
+let g:tagbar_sort = 0
 
 " ============================================================
 Plugin 'vim-mucomplete'
@@ -127,6 +128,23 @@ endif
 " :cw to show quickfix list
 " :cn
 " :cp
+
+noremap <C-L> :botright cw<CR>
+noremap <C-H> :cclose<CR>
+noremap <F8> :cp<CR>
+noremap <F9> :cn<CR>
+
+" Scrolling
+" Ctrl+F
+" Ctrl+B
+" Ctrl+D
+" Ctrl+U
+" Ctro+E/Y scrolling with 5 lines every time
+noremap <C-E> 5<C-E>
+noremap <C-Y> 5<C-Y>
+" zz  middle of window
+" zt  top of window
+" zb  bottom of window
 
 " s: Find this C symbol
 " \fs
