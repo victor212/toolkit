@@ -46,6 +46,10 @@ let NERDTreeWinSize=40
 " Enable this if Arrows cannot be show correctly
 let NERDTreeDirArrows=0
 
+" https://github.com/scrooloose/nerdcommenter
+" NERDCommenter
+
+
 " ============================================================
 Plugin 'Mark'
 
