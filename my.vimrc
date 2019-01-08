@@ -78,6 +78,7 @@ map <F10> :TagbarToggle<CR>
 " this can be enabled
 let g:tagbar_iconchars = ['+', '-']
 let g:tagbar_sort = 0
+let g:tagbar_width = 80
 
 " ============================================================
 Plugin 'vim-mucomplete'
