@@ -32,11 +32,31 @@ let g:ackhighlight = 1
 
 " ============================================================
 " Use tag v1.01 because it support vim v7.3
-Plugin 'LeaderF'
+"Plugin 'LeaderF'
 " ctrl+p to lauch Leaderf
-noremap <C-p> :Leaderf<CR>
-noremap <C-b> :LeaderfBuffer<CR>
-let g:Lf_DefaultMode=1 	" Search full path
+"noremap <C-p> :Leaderf<CR>
+"noremap <C-b> :LeaderfBuffer<CR>
+"let g:Lf_DefaultMode=1 	" Search full path
+
+" ============================================================
+" Should run toolkit/install.sh first
+set rtp+=~/.fzf
+Plugin 'junegunn/fzf.vim'
+noremap <C-p> :Files<CR>
+noremap <C-b> :Buffers<CR>
+" Lines
+" \l
+noremap <leader>l :Lines<CR>
+
+" BLines
+" \bl
+noremap <leader>bl :BLines<CR>
+" Tags
+" \t
+noremap <leader>t :Tags<CR>
+" BTags
+" \bt
+noremap <leader>bt :BTags<CR>
 
 " ============================================================
 Plugin 'The-NERD-tree'
@@ -205,7 +225,7 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 " ============================================================
-set tags=.cscope/tags 		" Ctags filename
+set tags=tags 		" Ctags filename
 "set tags+=xxxxx 	" Can add multi tags file
 "set autochdir
 

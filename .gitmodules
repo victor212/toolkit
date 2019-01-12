@@ -37,3 +37,9 @@
 [submodule "my.vim/bundle/LeaderF"]
 	path = my.vim/bundle/LeaderF
 	url = https://github.com/Yggdroot/LeaderF.git
+[submodule "my.tool/fzf"]
+	path = my.tool/fzf
+	url = https://github.com/junegunn/fzf.git
+[submodule "my.vim/bundle/fzf.vim"]
+	path = my.vim/bundle/fzf.vim
+	url = https://github.com/junegunn/fzf.vim

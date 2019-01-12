@@ -40,4 +40,11 @@ ln -s ${cur}/bin ${home}/bin2
 ln -s ${cur}/my.vimrc ${home}/.vimrc
 ln -s ${cur}/my.bash_cfg ${home}/.bash_cfg
 
+# install fzf
+if [ -d "${home}/.fzf/" ]; then
+	mv ${home}/.fzf ${home}/.fzf_${bak_time}
+fi
+
+ln -s ${cur}/my.tool/fzf ${home}/.fzf
+~/.fzf/install --all
 
