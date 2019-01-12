@@ -49,14 +49,14 @@ noremap <C-b> :Buffers<CR>
 noremap <leader>l :Lines<CR>
 
 " BLines
-" \bl
-noremap <leader>bl :BLines<CR>
+" \ll
+noremap <leader>ll :BLines<CR>
 " Tags
 " \t
 noremap <leader>t :Tags<CR>
 " BTags
-" \bt
-noremap <leader>bt :BTags<CR>
+" \tt
+noremap <leader>tt :BTags<CR>
 
 " ============================================================
 Plugin 'The-NERD-tree'
