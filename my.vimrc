@@ -269,3 +269,12 @@ filetype indent on	" Different file type use different indent
 filetype plugin on
 filetype plugin indent on
 
+" zc close folder
+" zo open folder
+" za switch
+set foldenable
+set foldmethod=syntax
+set foldcolumn=0
+setlocal foldlevel=1
+set foldlevelstart=99
+
