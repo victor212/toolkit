@@ -43,3 +43,9 @@
 [submodule "my.vim/bundle/fzf.vim"]
 	path = my.vim/bundle/fzf.vim
 	url = https://github.com/junegunn/fzf.vim
+[submodule "my.vim/bundle/vim-tmux-focus-events.git"]
+	path = my.vim/bundle/vim-tmux-focus-events.git
+	url = https://github.com/tmux-plugins/vim-tmux-focus-events.git
+[submodule "my.vim/bundle/vim-tmux-clipboard.git"]
+	path = my.vim/bundle/vim-tmux-clipboard.git
+	url = https://github.com/roxma/vim-tmux-clipboard.git
