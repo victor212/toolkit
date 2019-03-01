@@ -39,6 +39,12 @@ ln -s ${cur}/my.vim ${home}/.vim
 ln -s ${cur}/bin ${home}/bin2
 ln -s ${cur}/my.vimrc ${home}/.vimrc
 ln -s ${cur}/my.bash_cfg ${home}/.bash_cfg
+ln -s ${cur}/my.tmux.conf ${home}/.tmux.conf
+
+#  For neovim
+mkdir -p ~.config
+ln -s ${cur}/my.vim ~/.config/nvim
+ln -s ${cur}/my.vimrc ~/.config/nvim/init.vim
 
 # install fzf
 if [ -d "${home}/.fzf/" ]; then
@@ -47,4 +53,5 @@ fi
 
 ln -s ${cur}/my.tool/fzf ${home}/.fzf
 ~/.fzf/install --all
+
 
