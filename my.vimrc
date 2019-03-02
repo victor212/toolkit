@@ -115,6 +115,10 @@ let g:mucomplete#enable_auto_at_startup = 0
 Plugin 'vim-airline'
 Plugin 'vim-airline-themes'
 
+" ============================================================
+Plugin 'vim-tmux-focus-events'
+Plugin 'vim-tmux-clipboard'
+
 " let g:airline_theme="molokai"
 set t_Co=256 	" If term only support 256 color, need to set it
 
