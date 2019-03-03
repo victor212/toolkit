@@ -174,8 +174,8 @@ noremap <F9> :cn<CR>
 " Ctrl+D
 " Ctrl+U
 " Ctro+E/Y scrolling with 5 lines every time
-noremap <C-E> 5<C-E>
-noremap <C-Y> 5<C-Y>
+noremap <C-E> 10<C-E>
+noremap <C-Y> 10<C-Y>
 " zz  middle of window
 " zt  top of window
 " zb  bottom of window
