@@ -10,17 +10,22 @@
 [options]
     # set spacevim theme. by default colorscheme layer is not loaded,
     # if you want to use more colorscheme, please load the colorscheme
-    # layer gruvbox
+    # layer
+    # terminal: desert
     colorscheme = "gruvbox"
     colorscheme_bg = "dark"
     # Disable guicolors in basic mode, many terminal do not support 24bit
     # true colors
+    # terminal: false
     enable_guicolors = true
     # Disable statusline separator, if you want to use other value, please
     # install nerd fonts
+    disabled_plugins = ["vim-startify"]
+    # terminal; nil 
     statusline_separator = "arrow"
     statusline_inactive_separator = "arrow"
     buffer_index_type = 4
+    # terminal: false 
     enable_tabline_filetype_icon = true
     enable_statusline_mode = true 
     max_column = 80
@@ -29,6 +34,8 @@
     enable_cursorline = true
     error_symbol = "+"
     enable_vimfiler_welcome = false
+    project_rooter_automatically = false
+    # terminal: false
     enable_powerline_fonts = true
     lint_on_save = false
     relativenumber = false
@@ -37,17 +44,20 @@
 
 # Enable autocomplete layer
 [[layers]]
+name = 'ui'
+
+[[layers]]
 name = 'autocomplete'
 auto-completion-return-key-behavior = "complete"
 auto-completion-tab-key-behavior = "smart"
 
-[[layers]]
-name = 'shell'
-default_position = 'top'
-default_height = 50
+#[[layers]]
+#name = 'shell'
+#default_position = 'top'
+#default_height = 50
 
-[[layers]]
-name = 'lang#c'
+#[[layers]]
+#name = 'lang#c'
 
 [[layers]]
 name = 'fzf'
@@ -68,5 +78,4 @@ name = 'roxma/vim-tmux-clipboard'
 
 [[custom_plugins]]
 name = 'tmux-plugins/vim-tmux-focus-events'
-
 
