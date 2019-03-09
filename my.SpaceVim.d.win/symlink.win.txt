@@ -1,0 +1,4 @@
+
+cmd /c mklink source target
+e.g.
+cmd /c mklink $HOME\vimfiles $repo_path
