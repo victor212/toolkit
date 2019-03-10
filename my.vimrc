@@ -51,6 +51,8 @@ noremap <C-p> :Files<CR>
 noremap <Spacep>pf :Files<CR>
 noremap <C-b> :Buffers<CR>
 noremap <Space>bb :Buffers<CR>
+" Close all buffers
+noremap <Space>bc :bufdo bd<CR>
 " Lines
 " search all buffers
 noremap <Space>sb :Lines<CR>
