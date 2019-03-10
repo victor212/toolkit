@@ -20,10 +20,10 @@ Plugin 'VundleVim/Vundle.vim'
 
 
 " ============================================================
-Plugin 'ack.vim'
+"Plugin 'ack.vim'
 " \a to search
-nnoremap <Leader>a :Ack!<Space>
-let g:ackhighlight = 1
+"nnoremap <Leader>a :Ack!<Space>
+"let g:ackhighlight = 1
 
 " ============================================================
 "Plugin 'ctrlp.vim'
@@ -48,28 +48,28 @@ let g:ackhighlight = 1
 set rtp+=~/.fzf
 Plugin 'junegunn/fzf.vim'
 noremap <C-p> :Files<CR>
+noremap <Spacep>pf :Files<CR>
 noremap <C-b> :Buffers<CR>
+noremap <Space>bb :Buffers<CR>
 " Lines
-" \l
-noremap <leader>l :Lines<CR>
+" search all buffers
+noremap <Space>sb :Lines<CR>
 
 " BLines
-" \ll
-noremap <leader>ll :BLines<CR>
-" Tags
-" \t
-noremap <leader>t :Tags<CR>
+" Search current buffer
+noremap <Space>ss :BLines<CR>
 " BTags
-" \tt
-noremap <leader>tt :BTags<CR>
+" Search file outline
+noremap <leader>fo :BTags<CR>
 
 " ============================================================
-Plugin 'The-NERD-tree'
+"Plugin 'The-NERD-tree'
 " Set toggle key map
-map <C-n> :silent! NERDTreeToggle<CR>
-let NERDTreeWinSize=40
+"map <C-n> :silent! NERDTreeToggle<CR>
+"let NERDTreeWinSize=40
 " Enable this if Arrows cannot be show correctly
-let NERDTreeDirArrows=0
+"let NERDTreeDirArrows=0
+"let NERDTreeWinPos="right"
 
 " https://github.com/scrooloose/nerdcommenter
 " NERDCommenter
@@ -85,7 +85,7 @@ map <C-K> :pyf ~/bin2/clang-format.py<CR>
 "let g:clang_format_path = "clang-format-3.8"
 
 " ============================================================
-Plugin 'TagHighlight'
+"Plugin 'TagHighlight'
 
 " ============================================================
 "Plugin 'taglist.vim'
@@ -98,15 +98,15 @@ Plugin 'TagHighlight'
 
 " ============================================================
 Plugin 'Tagbar'
-map <F10> :TagbarToggle<CR>
+map <F2> :TagbarToggle<CR>
 " Can refer to help doc, if cannot show arrows correctly,
 " this can be enabled
 let g:tagbar_iconchars = ['+', '-']
 let g:tagbar_sort = 0
 let g:tagbar_width = 80
-
+let g:tagbar_left = 1
 " ============================================================
-Plugin 'vim-mucomplete'
+"Plugin 'vim-mucomplete'
 " set completeopt+=noselect
 let g:mucomplete#enable_auto_at_startup = 0
 " let g:mucomplete#no_mappings = 1
@@ -130,8 +130,8 @@ if has("cscope")
 	if filereadable("/usr/local/bin/cscope")
 		set csprg=/usr/local/bin/cscope
 	endif
-	if filereadable("/usr//bin/cscope")
-		set csprg=/usr//bin/cscope
+	if filereadable("/usr/bin/cscope")
+		set csprg=/usr/bin/cscope
 	endif
 
 	" csto = 0, cscope database will be search first, 1 ctags first
@@ -174,8 +174,8 @@ noremap <F9> :cn<CR>
 " Ctrl+D
 " Ctrl+U
 " Ctro+E/Y scrolling with 5 lines every time
-noremap <C-E> 10<C-E>
-noremap <C-Y> 10<C-Y>
+noremap <C-E> 20<C-E>
+noremap <C-Y> 20<C-Y>
 " zz  middle of window
 " zt  top of window
 " zb  bottom of window
