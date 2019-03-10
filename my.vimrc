@@ -48,7 +48,7 @@ Plugin 'VundleVim/Vundle.vim'
 set rtp+=~/.fzf
 Plugin 'junegunn/fzf.vim'
 noremap <C-p> :Files<CR>
-noremap <Spacep>pf :Files<CR>
+noremap <Space>pf :Files<CR>
 noremap <C-b> :Buffers<CR>
 noremap <Space>bb :Buffers<CR>
 " Close all buffers
