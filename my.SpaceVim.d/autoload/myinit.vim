@@ -12,6 +12,12 @@ function! myinit#before() abort
   nnoremap <C-Y> 20<C-Y>
   noremap <C-L> :botright cw<CR>
   noremap <C-H> :cclose<CR>
+  " SPC + e + h hide quickfix window
+  noremap <Space>eh :cclose<CR>
+  " SPC + e + < older quickfix window
+  noremap <Space>e< :colder<CR>
+  " SPC + e + > newer quickfix window
+  noremap <Space>e> :cnewer<CR>
   noremap <F8> :cp<CR>
   noremap <F9> :cn<CR>
 

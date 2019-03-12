@@ -18,12 +18,18 @@ Plugin 'VundleVim/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 
+" ============================================================
+"Plugin 'ag.vim'
+" \a to search
+"nnoremap <Leader>a :Ag!<Space>
+"let g:ag_working_path_mode="r"
+
 
 " ============================================================
-"Plugin 'ack.vim'
+Plugin 'ack.vim'
 " \a to search
-"nnoremap <Leader>a :Ack!<Space>
-"let g:ackhighlight = 1
+nnoremap <Leader>a :Ack!<Space>
+let g:ackhighlight = 1
 
 " ============================================================
 "Plugin 'ctrlp.vim'
@@ -49,6 +55,7 @@ set rtp+=~/.fzf
 Plugin 'junegunn/fzf.vim'
 noremap <C-p> :Files<CR>
 noremap <Space>pf :Files<CR>
+noremap <Space>ff :Files <C-R>=expand("%:p:h")<CR><CR>
 noremap <C-b> :Buffers<CR>
 noremap <Space>bb :Buffers<CR>
 " Close all buffers
@@ -167,8 +174,20 @@ endif
 
 noremap <C-L> :botright cw<CR>
 noremap <C-H> :cclose<CR>
+" SPC + e + l hide quickfix window
+noremap <Space>el :cw<CR>
+" SPC + e + h hide quickfix window
+noremap <Space>eh :cclose<CR>
+" SPC + e + < older quickfix window
+noremap <Space>e< :colder<CR>
+" SPC + e + > newer quickfix window
+noremap <Space>e> :cnewer<CR>
 noremap <F8> :cp<CR>
 noremap <F9> :cn<CR>
+" SPC + e + n next item
+noremap <Space>en :cn<CR>
+" SPC + e + p previous item
+noremap <Space>ep :cp<CR>
 
 " Scrolling
 " Ctrl+F
