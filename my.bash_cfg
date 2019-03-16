@@ -204,9 +204,14 @@ function mindexer()
 	DB_CS=${PWD}/.cscope/cscope.out
 	DB_TAG=${PWD}/tags
 	FLIST=${PWD}/.cscope/cscope.files
-	cscope-indexer -v -r -f ${DB_CS} -i ${FLIST}
 
-	if [ x"$1" != x ]; then
+        if [ x"$1" = x"list" ]; then
+                cscope-indexer -v -r -l -i ${FLIST}
+        else
+                cscope-indexer -v -r -f ${DB_CS} -i ${FLIST}
+        fi
+
+	if [ x"$1" = x"all" ]; then
 		echo "Creating ctags ..."
 		ctags -f ${DB_TAG} -L ${FLIST}
 		echo "Creating ctags files done "
@@ -217,4 +222,9 @@ function mcsignore()
 {
 	touch .cscopeignore
 }
+
+alias lg='git log --graph --decorate=full  -10'
+alias st='git status'
+alias gb='git branch'
+alias gc='git commit'
 
