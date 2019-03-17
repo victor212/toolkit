@@ -1,5 +1,6 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
+let g:mapleader=","
 
 " neovim report error
 "if exists('$TMUX')

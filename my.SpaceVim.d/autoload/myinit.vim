@@ -1,4 +1,5 @@
 function! myinit#before() abort
+  execute "let g:mapleader=','"
   execute "set cc=81"
   execute "set tags=tags"
   execute "set tabstop=8"
