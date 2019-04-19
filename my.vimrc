@@ -125,6 +125,14 @@ let g:mucomplete#enable_auto_at_startup = 0
 Plugin 'vim-airline'
 Plugin 'vim-airline-themes'
 
+let g:airline#extensions#tabline#enabled = 1 
+let g:airline#extensions#tabline#buffer_nr_show = 0
+let g:airline#extensions#tabline#fnamemod = ':t'
+noremap <Space>bn :bn<CR>
+noremap <Space>bp :bp<CR>
+noremap <Space>bg :b<Space>
+noremap <Space><Tab> :b#<CR>
+
 " ============================================================
 Plugin 'vim-tmux-focus-events'
 Plugin 'vim-tmux-clipboard'
@@ -198,6 +206,12 @@ noremap <Space>ep :cp<CR>
 " Ctro+E/Y scrolling with 5 lines every time
 noremap <C-E> 20<C-E>
 noremap <C-Y> 20<C-Y>
+
+" Completion
+inoremap<C-]> <C-X><C-]>
+inoremap<C-N> <C-X><C-N>
+inoremap<C-D> <C-X><C-D>
+
 " zz  middle of window
 " zt  top of window
 " zb  bottom of window
@@ -262,7 +276,7 @@ set tags=tags 		" Ctags filename
 
 
 set number
-set cursorline
+" set cursorline
 " set cursorcolumn
 
 " no backup file
