@@ -144,6 +144,46 @@ cd_func ()
 
 alias cd=cd_func
 
+
+__my_fzf_select__() {
+  local cmd="${FZF_CTRL_T_COMMAND:-"command find -L ${R} -mindepth 1 \\( -path '*/\\.*' -o -fstype 'sysfs' -o -fstype 'devfs' -o -fstype 'devtmpfs' -o -fstype 'proc' \\) -prune \
+    -o -type f -print \
+    -o -type d -print \
+    -o -type l -print 2> /dev/null"}"
+  eval "$cmd" | FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} --reverse $FZF_DEFAULT_OPTS $FZF_CTRL_T_OPTS" fzf -m "$@" | while read -r item; do
+    printf '%q' "$item"
+  done
+  echo
+}
+
+__my_fzf_use_tmux__() {
+  [ -n "$TMUX_PANE" ] && [ "${FZF_TMUX:-0}" != 0 ] && [ ${LINES:-40} -gt 15 ]
+}
+
+__my_fzfcmd() {
+  __my_fzf_use_tmux__ &&
+    echo "fzf-tmux -d${FZF_TMUX_HEIGHT:-40%}" || echo "fzf"
+}
+
+__my_fzf_cd__() {
+  local cmd dir
+  cmd="${FZF_ALT_C_COMMAND:-"command find -L ${R} -mindepth 1 \\( -path '*/\\.*' -o -fstype 'sysfs' -o -fstype 'devfs' -o -fstype 'devtmpfs' -o -fstype 'proc' \\) -prune \
+    -o -type d -print 2> /dev/null"}"
+  dir=$(eval "$cmd" | FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} --reverse $FZF_DEFAULT_OPTS $FZF_ALT_C_OPTS" $(__my_fzfcmd) +m) && cd "$dir"
+}
+
+vf() {
+	vim $(__my_fzf_select__)
+}
+
+#alias gd=__my_fzf_cd__
+
+# go to module
+alias md=cdc
+# go to sdk top
+alias cdt=croot
+alias lf=__my_fzf_select__
+
 export CS_SOURCE_FILE_DIR+=
 
 function markcs()
@@ -188,6 +228,70 @@ function mktags()
 	cscope -Rbqk -i cscope.files
 }
 
+function cdc()
+{
+	dest=""
+	if [ x"$R" = x"" ]; then
+		return 0
+	fi
+
+	local param="$*"
+
+	find $R/* -type d|grep components |grep "source$" >~/.cd
+
+	if [ x"$1" = x"" ]; then
+		local count=0
+	else
+		local count=$(cat ~/.cd | grep $1 | wc -l)
+	fi
+	if [ $count -gt 1 ] ; then
+		dest=$(cat ~/.cd | fzf -e --query=$param)
+		if [ x"$dest" != x"" ]; then
+			cd $dest
+		fi
+		return 0
+	elif [ $count -eq 1 ] ; then
+		cd $(cat ~/.cd | grep $1)
+		return 0
+	else
+		dest=$(cat ~/.cd | fzf -e)
+		if [ x"$dest" != x"" ]; then
+			cd $dest
+		fi
+		return 0
+	fi
+}
+
+function cdd()
+{
+	dest=""
+	local param="$*"
+
+	find * -type d >~/.cd
+
+	if [ x"$1" = x"" ]; then
+		local count=0
+	else
+		local count=$(cat ~/.cd | grep $1 | wc -l)
+	fi
+	if [ $count -gt 1 ] ; then
+		dest=$(cat ~/.cd | fzf -e --query=$param)
+		if [ x"$dest" != x"" ]; then
+			cd $dest
+		fi
+		return 0
+	elif [ $count -eq 1 ] ; then
+		cd $(cat ~/.cd | grep $1)
+		return 0
+	else
+		dest=$(cat ~/.cd | fzf -e)
+		if [ x"$dest" != x"" ]; then
+			cd $dest
+		fi
+		return 0
+	fi
+}
+
 function mroot()
 {
 	export R=${PWD}
@@ -195,6 +299,9 @@ function mroot()
 
 function croot()
 {
+	if [ x"$R" = x"" ]; then
+		return 0
+	fi
 	cd $R
 }
 
