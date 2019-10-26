@@ -19,36 +19,6 @@ Plugin 'VundleVim/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 
-" ============================================================
-"Plugin 'ag.vim'
-" \a to search
-"nnoremap <Leader>a :Ag!<Space>
-"let g:ag_working_path_mode="r"
-
-
-" ============================================================
-Plugin 'ack.vim'
-" \a to search
-nnoremap <Leader>a :Ack!<Space>
-let g:ackhighlight = 1
-
-" ============================================================
-"Plugin 'ctrlp.vim'
-"let g:ctrlp_custom_ignore = {
-"    \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-"    \ 'file': '\v\.(exe|so|o)$',
-"    \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
-"    \ }  
-"
-"let g:ctrlp_working_path_mode="" 	" Always search from top
-
-" ============================================================
-" Use tag v1.01 because it support vim v7.3
-"Plugin 'LeaderF'
-" ctrl+p to lauch Leaderf
-"noremap <C-p> :Leaderf<CR>
-"noremap <C-b> :LeaderfBuffer<CR>
-"let g:Lf_DefaultMode=1 	" Search full path
 
 " ============================================================
 " Should run toolkit/install.sh first
@@ -72,18 +42,8 @@ noremap <Space>ss :BLines<CR>
 " Search file outline
 noremap <leader>fo :BTags<CR>
 
-" ============================================================
-"Plugin 'The-NERD-tree'
-" Set toggle key map
-"map <C-n> :silent! NERDTreeToggle<CR>
-"let NERDTreeWinSize=40
-" Enable this if Arrows cannot be show correctly
-"let NERDTreeDirArrows=0
-"let NERDTreeWinPos="right"
-
-" https://github.com/scrooloose/nerdcommenter
-" NERDCommenter
-
+" Search whole project
+nnoremap  <Space>sP :Ag!  <C-R>=expand("<cword>")<CR><CR>
 
 " ============================================================
 Plugin 'Mark'
@@ -93,33 +53,6 @@ Plugin 'Mark'
 map <C-K> :pyf ~/bin2/clang-format.py<CR>
 " Can configure clang format path
 "let g:clang_format_path = "clang-format-3.8"
-
-" ============================================================
-"Plugin 'TagHighlight'
-
-" ============================================================
-"Plugin 'taglist.vim'
-"map <F10> :silent! TlistToggle<CR>
-"let Tlist_Ctags_Cmd='ctags'
-"let Tlist_Show_One_File=1
-"let Tlist_WinWidth=40
-"let Tlist_Exit_OnlyWindow=1
-"let Tlist_Use_Right_Window=1
-
-" ============================================================
-Plugin 'Tagbar'
-map <F2> :TagbarToggle<CR>
-" Can refer to help doc, if cannot show arrows correctly,
-" this can be enabled
-let g:tagbar_iconchars = ['+', '-']
-let g:tagbar_sort = 0
-let g:tagbar_width = 80
-let g:tagbar_left = 1
-" ============================================================
-"Plugin 'vim-mucomplete'
-" set completeopt+=noselect
-let g:mucomplete#enable_auto_at_startup = 0
-" let g:mucomplete#no_mappings = 1
 
 " ============================================================
 Plugin 'vim-airline'
@@ -134,8 +67,8 @@ noremap <Space>bg :b<Space>
 noremap <Space><Tab> :b#<CR>
 
 " ============================================================
-Plugin 'vim-tmux-focus-events'
-Plugin 'vim-tmux-clipboard'
+" Plugin 'vim-tmux-focus-events'
+" Plugin 'vim-tmux-clipboard'
 
 " let g:airline_theme="molokai"
 set t_Co=256 	" If term only support 256 color, need to set it
