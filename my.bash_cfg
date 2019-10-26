@@ -333,6 +333,7 @@ function mcsignore()
 alias lg='git log --graph --decorate=full  -10'
 alias st='git status'
 alias gb='git branch'
+alias br='git branch'
 alias gc='git commit'
 alias gitss='git stash'
 
