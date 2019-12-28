@@ -55,6 +55,9 @@ noremap <Space>sP :Rg! <C-R>=expand("<cword>")<CR><CR>
 "Plugin 'Mark'
 
 " ============================================================
+Plugin 'editorconfig-vim'
+
+" ============================================================
 " clang-format.py
 map <C-K> :pyf ~/bin2/clang-format.py<CR>
 " Can configure clang format path

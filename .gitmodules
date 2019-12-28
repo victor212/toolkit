@@ -1,54 +1,15 @@
-[submodule "my.vim/bundle/The-NERD-tree"]
-	path = my.vim/bundle/The-NERD-tree
-	url = https://github.com/vim-scripts/The-NERD-tree.git
-[submodule "my.vim/bundle/taglist.vim"]
-	path = my.vim/bundle/taglist.vim
-	url = https://github.com/vim-scripts/taglist.vim.git
 [submodule "my.vim/bundle/Mark"]
 	path = my.vim/bundle/Mark
 	url = https://github.com/vim-scripts/Mark.git
-[submodule "my.vim/bundle/TagHighlight"]
-	path = my.vim/bundle/TagHighlight
-	url = https://github.com/vim-scripts/TagHighlight.git
-[submodule "my.vim/bundle/Tagbar"]
-	path = my.vim/bundle/Tagbar
-	url = https://github.com/vim-scripts/Tagbar.git
 [submodule "my.vim/bundle/Vundle.vim"]
 	path = my.vim/bundle/Vundle.vim
 	url = https://github.com/VundleVim/Vundle.vim.git
-[submodule "my.vim/bundle/ctrlp.vim"]
-	path = my.vim/bundle/ctrlp.vim
-	url = https://github.com/vim-scripts/ctrlp.vim.git
-[submodule "my.vim/bundle/vim-airline"]
-	path = my.vim/bundle/vim-airline
-	url = https://github.com/vim-scripts/vim-airline.git
-[submodule "my.vim/bundle/vim-mucomplete"]
-	path = my.vim/bundle/vim-mucomplete
-	url = https://github.com/lifepillar/vim-mucomplete.git
-[submodule "my.vim/bundle/cscope.vim"]
-	path = my.vim/bundle/cscope.vim
-	url = https://github.com/vim-scripts/cscope.vim.git
-[submodule "my.vim/bundle/vim-airline-themes"]
-	path = my.vim/bundle/vim-airline-themes
-	url = https://github.com/vim-airline/vim-airline-themes
-[submodule "my.vim/bundle/ack.vim"]
-	path = my.vim/bundle/ack.vim
-	url = https://github.com/mileszs/ack.vim.git
-[submodule "my.vim/bundle/LeaderF"]
-	path = my.vim/bundle/LeaderF
-	url = https://github.com/Yggdroot/LeaderF.git
 [submodule "my.tool/fzf"]
 	path = my.tool/fzf
 	url = https://github.com/junegunn/fzf.git
 [submodule "my.vim/bundle/fzf.vim"]
 	path = my.vim/bundle/fzf.vim
 	url = https://github.com/junegunn/fzf.vim
-[submodule "my.vim/bundle/vim-tmux-focus-events.git"]
-	path = my.vim/bundle/vim-tmux-focus-events.git
-	url = https://github.com/tmux-plugins/vim-tmux-focus-events.git
-[submodule "my.vim/bundle/vim-tmux-clipboard.git"]
-	path = my.vim/bundle/vim-tmux-clipboard.git
-	url = https://github.com/roxma/vim-tmux-clipboard.git
-[submodule "my.vim/bundle/ag.vim"]
-	path = my.vim/bundle/ag.vim
-	url = https://github.com/rking/ag.vim.git
+[submodule "my.vim/bundle/editorconfig-vim"]
+	path = my.vim/bundle/editorconfig-vim
+	url = https://github.com/editorconfig/editorconfig-vim.git
