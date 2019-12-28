@@ -19,7 +19,6 @@ Plugin 'VundleVim/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 
-
 " ============================================================
 " Should run toolkit/install.sh first
 set rtp+=~/.fzf
@@ -42,11 +41,18 @@ noremap <Space>ss :BLines<CR>
 " Search file outline
 noremap <leader>fo :BTags<CR>
 
+nnoremap <C-[>a :Ag <C-R>=expand("<cword>")<CR><CR>
+nnoremap <C-[>r :Rg! <C-R>=expand("<cword>")<CR><CR>
+
+noremap <leader>aw :Ag <C-R>=expand("<cword>")<CR><CR>
+noremap <leader>rw :Rg! <C-R>=expand("<cword>")<CR><CR>
+noremap <Leader>a :Ag!<Space>
 " Search whole project
-nnoremap  <Space>sP :Ag!  <C-R>=expand("<cword>")<CR><CR>
+noremap <Space>sP :Rg! <C-R>=expand("<cword>")<CR><CR>
+"noremap <Leader>r :Rg!<Space>
 
 " ============================================================
-Plugin 'Mark'
+"Plugin 'Mark'
 
 " ============================================================
 " clang-format.py
@@ -55,8 +61,8 @@ map <C-K> :pyf ~/bin2/clang-format.py<CR>
 "let g:clang_format_path = "clang-format-3.8"
 
 " ============================================================
-Plugin 'vim-airline'
-Plugin 'vim-airline-themes'
+"Plugin 'vim-airline'
+"Plugin 'vim-airline-themes'
 
 let g:airline#extensions#tabline#enabled = 1 
 let g:airline#extensions#tabline#buffer_nr_show = 0
@@ -65,10 +71,6 @@ noremap <Space>bn :bn<CR>
 noremap <Space>bp :bp<CR>
 noremap <Space>bg :b<Space>
 noremap <Space><Tab> :b#<CR>
-
-" ============================================================
-" Plugin 'vim-tmux-focus-events'
-" Plugin 'vim-tmux-clipboard'
 
 " let g:airline_theme="molokai"
 set t_Co=256 	" If term only support 256 color, need to set it

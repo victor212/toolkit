@@ -176,7 +176,7 @@ vf() {
 	vim $(__my_fzf_select__)
 }
 
-#alias gd=__my_fzf_cd__
+alias gd=__my_fzf_cd__
 
 # go to module
 alias md=cdc
@@ -331,9 +331,9 @@ function mcsignore()
 }
 
 alias lg='git log --graph --decorate=full  -10'
+alias lg1='git log  -1'
 alias st='git status'
 alias gb='git branch'
-alias br='git branch'
 alias gc='git commit'
-alias gitss='git stash'
+alias kill9='kill -9 '
 
