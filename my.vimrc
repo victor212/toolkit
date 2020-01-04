@@ -48,7 +48,8 @@ noremap <leader>aw :Ag <C-R>=expand("<cword>")<CR><CR>
 noremap <leader>rw :Rg! <C-R>=expand("<cword>")<CR><CR>
 noremap <Leader>a :Ag!<Space>
 " Search whole project
-noremap <Space>sP :Rg! <C-R>=expand("<cword>")<CR><CR>
+noremap <Space>sP :Ag! <C-R>=expand("<cword>")<CR><CR>
+"noremap <Space>sP :Rg! <C-R>=expand("<cword>")<CR><CR>
 "noremap <Leader>r :Rg!<Space>
 
 " ============================================================
