@@ -33,6 +33,10 @@ if [ -f "${home}/.vimrc" ]; then
 	mv ${home}/.vimrc ${home}/.vimrc_${bak_time}
 fi
 
+if [ -f "${home}/.tmux.conf" ]; then
+	mv ${home}/.tmux.conf ${home}/.tmux.conf${bak_time}
+fi
+
 
 # Use soft link is better, because this will be changed in frequency.
 ln -s ${cur}/my.vim ${home}/.vim
@@ -42,7 +46,7 @@ ln -s ${cur}/my.bash_cfg ${home}/.bash_cfg
 ln -s ${cur}/my.tmux.conf ${home}/.tmux.conf
 
 #  For neovim
-mkdir -p ~.config
+mkdir -p ~/.config
 ln -s ${cur}/my.vim ~/.config/nvim
 ln -s ${cur}/my.vimrc ~/.config/nvim/init.vim
 
