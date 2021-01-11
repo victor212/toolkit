@@ -25,6 +25,7 @@
 #
 # It operates on the current, potentially unsaved buffer and does not create
 # or save any files. To revert a formatting, just undo.
+
 from __future__ import print_function
 
 import difflib
@@ -32,6 +33,9 @@ import json
 import subprocess
 import sys
 import vim
+
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 # set g:clang_format_path to the path to clang-format if it is not on the path
 # Change this to the full path if clang-format is not on the path.

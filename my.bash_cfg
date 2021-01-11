@@ -330,10 +330,19 @@ function mcsignore()
 	touch .cscopeignore
 }
 
+function lse()
+{
+	find ${PWD} -name "*.[c|C|h|H]" -perm /a=x
+	find ${PWD} -name "*akefile" -perm /a=x
+	find ${PWD} -name Kconfig -perm /a=x
+}
+
 alias lg='git log --graph --decorate=full  -10'
 alias lg1='git log  -1'
 alias st='git status'
 alias gb='git branch'
+alias br='git branch'
 alias gc='git commit'
+alias gitcp='git cherry-pick'
 alias kill9='kill -9 '
 

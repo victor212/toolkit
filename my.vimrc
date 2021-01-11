@@ -1,88 +1,103 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
-let g:mapleader=","
 
-" neovim report error
-"if exists('$TMUX')
-"	set term=screen-256color
-"endif
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plugin
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-" The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
-
-" ============================================================
-" Should run toolkit/install.sh first
-set rtp+=~/.fzf
+Plugin 'VundleVim/Vundle.vim'
+set rtp+=~/.fzf			" Should run toolkit/install.sh first
 Plugin 'junegunn/fzf.vim'
-noremap <C-p> :Files<CR>
-noremap <Space>pf :Files<CR>
-noremap <Space>ff :Files <C-R>=expand("%:p:h")<CR><CR>
-noremap <C-b> :Buffers<CR>
-noremap <Space>bb :Buffers<CR>
-" Close all buffers
-noremap <Space>bc :bufdo bd<CR>
-" Lines
-" search all buffers
-noremap <Space>sb :Lines<CR>
-
-" BLines
-" Search current buffer
-noremap <Space>ss :BLines<CR>
-" BTags
-" Search file outline
-noremap <leader>fo :BTags<CR>
-
-nnoremap <C-[>a :Ag <C-R>=expand("<cword>")<CR><CR>
-nnoremap <C-[>r :Rg! <C-R>=expand("<cword>")<CR><CR>
-
-noremap <leader>aw :Ag <C-R>=expand("<cword>")<CR><CR>
-noremap <leader>rw :Rg! <C-R>=expand("<cword>")<CR><CR>
-noremap <Leader>a :Ag!<Space>
-" Search whole project
-"noremap <Space>sP :Ag! <C-R>=expand("<cword>")<CR><CR>
-noremap <Space>sP :Rg! <C-R>=expand("<cword>")<CR><CR>
-noremap <Leader>r :Rg!<Space>
-
-" ============================================================
-"Plugin 'Mark'
-
-" ============================================================
+Plugin 'vim-easy-align'
 Plugin 'editorconfig-vim'
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
 
-" ============================================================
-" clang-format.py
-map <C-K> :pyf ~/bin2/clang-format.py<CR>
-" Can configure clang format path
-"let g:clang_format_path = "clang-format-3.8"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" KEY MAPPING
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" ============================================================
-"Plugin 'vim-airline'
-"Plugin 'vim-airline-themes'
+" leader key default is '\'
+let g:mapleader=","
 
-let g:airline#extensions#tabline#enabled = 1 
-let g:airline#extensions#tabline#buffer_nr_show = 0
-let g:airline#extensions#tabline#fnamemod = ':t'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" File Navigation
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" List and search file
+noremap <C-p> :Files<CR>
+
+" Project File(List and search file in the whole project)
+noremap <Space>pf :Files<CR>
+
+" Find File in current file's folder
+noremap <Space>ff :Files <C-R>=expand("%:p:h")<CR><CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Buffer(File) operation
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Search in buffer list(Opened file list)
+noremap <Space>bb :Buffers<CR>
+
+" Buffer Next(Show next opened file)
 noremap <Space>bn :bn<CR>
+
+" Buffer Previous(Show previous opened file)
 noremap <Space>bp :bp<CR>
 noremap <Space>bg :b<Space>
+
+" Buffer Previous(Show last file)
 noremap <Space><Tab> :b#<CR>
 
-" let g:airline_theme="molokai"
-set t_Co=256 	" If term only support 256 color, need to set it
+" Buffer Close(Close all opened files)
+noremap <Space>bc :bufdo bd<CR>
 
-" ============================================================
-" Plugin 'cscope.vim'
-" Some linux server cannot work, just skip it now
+" Search in Buffers(All opened files)
+noremap <Space>sb :Lines<CR>
 
+" File Outline(List Function name, etc.)
+noremap <Space>fo :BTags<CR>
+noremap <leader>fo :BTags<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Text Search
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Search String in current file
+noremap <Space>ss :BLines<CR>
+
+" Search Project(Search in the whole project)
+noremap <Space>sP :Rg! <C-R>=expand("<cword>")<CR><CR>
+noremap <leader>rw :Rg! <C-R>=expand("<cword>")<CR><CR>
+
+" Just show Rg command
+noremap <Leader>r :Rg!<Space>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Code alignment
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+vmap <Leader>a <Plug>(EasyAlign)
+nmap <Leader>a <Plug>(EasyAlign)
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Code Format
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <C-K> :pyf ~/bin2/clang-format.py<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Cscope setting and keymap
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has("cscope")
 	if filereadable("/usr/local/bin/cscope")
 		set csprg=/usr/local/bin/cscope
@@ -111,33 +126,76 @@ if has("cscope")
 
 	set csverb
 	set cscopequickfix=s-,c-,d-,i-,t-,e-,g-
-
 endif
 
-" leader key default is '\'
-"
+" ,fs Find C symbol under Cursor
+nnoremap  <leader>fs :cs find s <C-R>=expand("<cword>")<CR><CR>
+
+" ,fg Find definition under Cursor
+nnoremap  <leader>fg :cs find g <C-R>=expand("<cword>")<CR><CR>
+
+" ,fd Find functions called by function under Cursor
+nnoremap  <leader>fd :cs find d <C-R>=expand("<cword>")<CR><CR>
+
+" ,fc Find functions calling function under Cursor
+nnoremap  <leader>fc :cs find c <C-R>=expand("<cword>")<CR><CR>
+
+" ,ft Find text string under Cursor
+nnoremap  <leader>ft :cs find t <C-R>=expand("<cword>")<CR><CR>
+
+" ,fe Find egrep pattern
+nnoremap  <leader>fe :cs find e <C-R>=expand("<cword>")<CR><CR>
+
+" ,ff Find file, then open it
+nnoremap  <leader>ff :cs find f <C-R>=expand("<cword>")<CR><CR>
+
+" ,fi Find files #including file under Cursor
+nnoremap  <leader>fi :cs find i <C-R>=expand("<cword>")<CR><CR>
+
+" ,g
+noremap <leader>g :cstag<Space>
+
+" ,fe
+noremap <leader>e :cs find e<Space>
+
+" Quickfix Keys
 " :cw to show quickfix list
 " :cn
 " :cp
 
+" Ctrl+l: Show quickfix window
 noremap <C-L> :botright cw<CR>
-noremap <C-H> :cclose<CR>
+
 " SPC + e + l hide quickfix window
-noremap <Space>el :cw<CR>
+noremap <Space>el :botright cw<CR>
+
+" Ctrl+h: Hide quickfix window
+noremap <C-H> :cclose<CR>
+
 " SPC + e + h hide quickfix window
 noremap <Space>eh :cclose<CR>
+
 " SPC + e + < older quickfix window
 noremap <Space>e< :colder<CR>
+
 " SPC + e + > newer quickfix window
 noremap <Space>e> :cnewer<CR>
+
+" F8 Jump to previous quickfix item
 noremap <F8> :cp<CR>
-noremap <F9> :cn<CR>
-" SPC + e + n next item
-noremap <Space>en :cn<CR>
+
 " SPC + e + p previous item
 noremap <Space>ep :cp<CR>
 
-" Scrolling
+" F9 Jump to next quickfix item
+noremap <F9> :cn<CR>
+
+" SPC + e + n next item
+noremap <Space>en :cn<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Navigation
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Ctrl+F
 " Ctrl+B
 " Ctrl+D
@@ -146,81 +204,31 @@ noremap <Space>ep :cp<CR>
 noremap <C-E> 20<C-E>
 noremap <C-Y> 20<C-Y>
 
-" Completion
-inoremap<C-]> <C-X><C-]>
-inoremap<C-N> <C-X><C-N>
-inoremap<C-D> <C-X><C-D>
-
 " zz  middle of window
 " zt  top of window
 " zb  bottom of window
 
-" s: Find this C symbol
-" \fs
-nnoremap  <leader>fs :cs find s <C-R>=expand("<cword>")<CR><CR>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Word Completion
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Tag completion, list all symbol in ctags
+inoremap<C-]> <C-X><C-]>
 
-" g: Find this definition
-" \fg
-nnoremap  <leader>fg :cs find g <C-R>=expand("<cword>")<CR><CR>
+" Local keyword completion
+inoremap<C-N> <C-X><C-N>
 
-" d: Find functions called by this function
-" \fd
-nnoremap  <leader>fd :cs find d <C-R>=expand("<cword>")<CR><CR>
+" Local MACRO definition completion
+inoremap<C-D> <C-X><C-D>
 
-" c: Find functions calling this function
-" \fc
-nnoremap  <leader>fc :cs find c <C-R>=expand("<cword>")<CR><CR>
-
-" t: Find this text string
-" \ft
-nnoremap  <leader>ft :cs find t <C-R>=expand("<cword>")<CR><CR>
-
-" e: Find this egrep pattern
-" \fe
-nnoremap  <leader>fe :cs find e <C-R>=expand("<cword>")<CR><CR>
-
-" f: Find this file, then open it
-" \ff
-nnoremap  <leader>ff :cs find f <C-R>=expand("<cword>")<CR><CR>
-
-" i: Find files #including this file
-" \fi
-nnoremap  <leader>fi :cs find i <C-R>=expand("<cword>")<CR><CR>
-
-" \fg
-noremap <leader>g :cstag<Space>
-
-" \fe
-noremap <leader>e :cs find e<Space>
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-
-" ============================================================
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Other settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set tags=tags 		" Ctags filename
-"set tags+=xxxxx 	" Can add multi tags file
 "set autochdir
 
-
-set number
-" set cursorline
-" set cursorcolumn
-
-" no backup file
-set nobackup
-
+set t_Co=256 	" If term only support 256 color, need to set it
+set number		" Show line number
+set nobackup		" no backup file
 set noswapfile		" No swap file
 set laststatus=2
 set ruler
@@ -230,7 +238,7 @@ set tabstop=8		" Tab character width
 "set expandtab 		" Expand to space
 "set noexpandtab 	" No expand to space
 set cc=80		" Should not exceed 80 characters
-set ff=unix
+set ff=unix		" File Format
 set hlsearch		" Highlight search 
 set incsearch		" Incremental search
 set autoindent 		" Use  :set paste   set nopaste to enter paste mode
@@ -243,6 +251,7 @@ set showmatch		"
 syntax enable		" Syntax highlight keyword
 syntax on
 colorscheme desert 	" Can check in /usr/share/vim/xxx/colors
+
 hi search term=standout ctermfg=0 ctermbg=3
 hi ColorColumn term=standout ctermfg=9 ctermbg=8
 
@@ -262,3 +271,6 @@ set foldcolumn=0
 setlocal foldlevel=1
 set foldlevelstart=99
 
+if has("autocmd")
+autocmd BufNew,BufNewFile,BufRead *.md,*.markdown setlocal ft=markdown
+endif
